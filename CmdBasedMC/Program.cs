@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace CmdMC
 {
@@ -353,10 +352,12 @@ namespace CmdMC
                 Console.WriteLine("listsaves");
                 Console.WriteLine("Lists all saved builds.");
 */            }
+            // save command
             else if (inputCommand.StartsWith("save"))
             {
                 LargeCommands.SaveFile(layer0, multiLayerRender, viewmode);
             }
+            // load command
             else if (inputCommand.StartsWith("load"))
             {
                 try
