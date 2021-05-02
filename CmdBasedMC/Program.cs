@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace CmdMC
 {
@@ -10,6 +11,12 @@ namespace CmdMC
 
         static void Main(string[] args)
         {
+            string path = Directory.GetCurrentDirectory();
+            path = path.Replace(@"bin\Debug\netcoreapp3.1", @"saves");
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
             string inputCommand = Console.ReadLine();
             // close command
             if (inputCommand.StartsWith("close"))
