@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace CmdMC
 {
@@ -62,7 +63,7 @@ namespace CmdMC
                             if (grid3 > 0 && grid3 < 9)
                             {
                                 grid3--;
-                                if (blockSelection == "brick" || blockSelection == "stone" || blockSelection == "grass" || blockSelection == "wool" || blockSelection == "gold" || blockSelection == "fabric" || blockSelection == "water" || blockSelection == "lapis" || blockSelection == "air") 
+                                if (blockSelection == "brick" || blockSelection == "stone" || blockSelection == "grass" || blockSelection == "wool" || blockSelection == "gold" || blockSelection == "fabric" || blockSelection == "water" || blockSelection == "lapis" || blockSelection == "air" || blockSelection == "realgar" || blockSelection == "kyanite" || blockSelection == "amethyst")
                                 {
                                     layer0[grid1, grid2, grid3] = blockSelection;
                                     Render.RenderField(multiLayerRender, viewmode, layer0);
@@ -80,7 +81,11 @@ namespace CmdMC
                                     Render.GoldColour("Gold ");
                                     Render.FabricColour("Fabric ");
                                     Render.WaterColour("Water ");
-                                    Render.LapisColour("Lapis");
+                                    Render.LapisColour("Lapis ");
+                                    Console.WriteLine("");
+                                    Render.RealgarColour("Realgar ");
+                                    Render.KyaniteColour("Kyanite ");
+                                    Render.AmethystColour("Amethyst");
                                     Console.WriteLine("");
                                 }
                             }
@@ -181,88 +186,88 @@ namespace CmdMC
                     switch (input)
                     {
                         case "front":
-                        Console.WriteLine("Changed perspective to the front.");
-                        viewmode = "front";
-                        if (multiLayerRender == true)
-                        {
-                            Render.RenderCubeF(layer0);
-                            Console.WriteLine("");
-                        }
-                        else
-                        {
-                            Render.RenderBoxF(layer0, 0);
-                            Console.WriteLine("");
-                        }
-                        break;
+                            Console.WriteLine("Changed perspective to the front.");
+                            viewmode = "front";
+                            if (multiLayerRender == true)
+                            {
+                                Render.RenderCubeF(layer0);
+                                Console.WriteLine("");
+                            }
+                            else
+                            {
+                                Render.RenderBoxF(layer0, 0);
+                                Console.WriteLine("");
+                            }
+                            break;
                         case "top":
-                        Console.WriteLine("Changed perspective to the top.");
-                        viewmode = "top";
-                        if (multiLayerRender == true)
-                        {
-                            Render.RenderCubeT(layer0);
-                            Console.WriteLine("");
-                        }
-                        else
-                        {
-                            Render.RenderBoxT(layer0, 0);
-                            Console.WriteLine("");
-                        }
+                            Console.WriteLine("Changed perspective to the top.");
+                            viewmode = "top";
+                            if (multiLayerRender == true)
+                            {
+                                Render.RenderCubeT(layer0);
+                                Console.WriteLine("");
+                            }
+                            else
+                            {
+                                Render.RenderBoxT(layer0, 0);
+                                Console.WriteLine("");
+                            }
                             break;
                         case "right":
-                        Console.WriteLine("Changed perspective to the right.");
-                        viewmode = "right";
-                        if (multiLayerRender == true)
-                        {
-                            Render.RenderCubeR(layer0);
-                            Console.WriteLine("");
-                        }
-                        else
-                        {
-                            Render.RenderBoxR(layer0, 0);
-                            Console.WriteLine("");
-                        }
+                            Console.WriteLine("Changed perspective to the right.");
+                            viewmode = "right";
+                            if (multiLayerRender == true)
+                            {
+                                Render.RenderCubeR(layer0);
+                                Console.WriteLine("");
+                            }
+                            else
+                            {
+                                Render.RenderBoxR(layer0, 0);
+                                Console.WriteLine("");
+                            }
                             break;
                         case "back":
-                        Console.WriteLine("Changed perspective to the back.");
-                        viewmode = "back";
-                        if (multiLayerRender == true)
-                        {
-                            Render.RenderCubeB(layer0);
-                            Console.WriteLine("");
-                        }
-                        else
-                        {
-                            Render.RenderBoxB(layer0, 0);
-                            Console.WriteLine("");
-                        }
+                            Console.WriteLine("Changed perspective to the back.");
+                            viewmode = "back";
+                            if (multiLayerRender == true)
+                            {
+                                Render.RenderCubeB(layer0);
+                                Console.WriteLine("");
+                            }
+                            else
+                            {
+                                Render.RenderBoxB(layer0, 0);
+                                Console.WriteLine("");
+                            }
                             break;
                         case "bottom":
-                        Console.WriteLine("Changed perspective to the underside.");
-                        viewmode = "underside";
-                        if (multiLayerRender == true)
-                        {
-                            Render.RenderCubeU(layer0);
-                            Console.WriteLine("");
-                        }
-                        else
-                        {
-                            Render.RenderBoxU(layer0, 0);
-                            Console.WriteLine("");
-                        }
+                            Console.WriteLine("Changed perspective to the underside.");
+                            viewmode = "underside";
+                            if (multiLayerRender == true)
+                            {
+                                Render.RenderCubeU(layer0);
+                                Console.WriteLine("");
+                            }
+                            else
+                            {
+                                Render.RenderBoxU(layer0, 0);
+                                Console.WriteLine("");
+                            }
                             break;
                         case "left":
-                        Console.WriteLine("Changed perspective to the left.");
-                        viewmode = "left";
-                        if (multiLayerRender == true)
-                        {
-                            Render.RenderCubeL(layer0);
-                            Console.WriteLine("");
-                        }
-                        else
-                        {
-                            Render.RenderBoxL(layer0, 0);
-                            Console.WriteLine("");
-                        }
+                            Console.WriteLine("Changed perspective to the left.");
+                            viewmode = "left";
+                            if (multiLayerRender == true)
+                            {
+                                Render.RenderCubeL(layer0);
+                                Console.WriteLine("");
+                            }
+                            else
+                            {
+                                Render.RenderBoxL(layer0, 0);
+                                Console.WriteLine("");
+                            }
                             break;
                     }
                 }
@@ -273,7 +278,7 @@ namespace CmdMC
             }
             // fill command
             else if (inputCommand.StartsWith("fill"))
-            {    
+            {
                 try
                 {
                     int coord1 = Convert.ToInt32(inputCommand.Substring(5, 1));
@@ -338,8 +343,64 @@ namespace CmdMC
                 Console.WriteLine("-------------------------------------------------------");
                 Console.WriteLine("help");
                 Console.WriteLine("Displays a list of commands and how to use them.");
+                Console.WriteLine("-------------------------------------------------------");
+                Console.WriteLine("save");
+                Console.WriteLine("Saves the current build to a .json file.");
+                Console.WriteLine("-------------------------------------------------------");
+                Console.WriteLine("load (number)");
+                Console.WriteLine("Loads the specified file.");
+/*                Console.WriteLine("-------------------------------------------------------");
+                Console.WriteLine("listsaves");
+                Console.WriteLine("Lists all saved builds.");
+*/            }
+            else if (inputCommand.StartsWith("save"))
+            {
+                LargeCommands.SaveFile(layer0, multiLayerRender, viewmode);
             }
-            Main(args);
+            else if (inputCommand.StartsWith("load"))
+            {
+                try
+                {
+                    layer0 = LargeCommands.LoadFile(layer0, Convert.ToInt32(inputCommand.Substring(5)));
+                    Render.RenderField(multiLayerRender, viewmode, layer0);
+                    Console.WriteLine("Successfully loaded save.");
+                }
+                catch
+                {
+                    Console.WriteLine("Invalid input. Please try again.");
+                }
+            }
+/*            else if (inputCommand.StartsWith("listsaves"))
+            {
+                LargeCommands.SaveList();
+            }
+            else if (inputCommand.StartsWith("delete"))
+            {
+                if (File.Exists(@"c:\Users\Oreli\source\repos\CmdBasedMC\CmdBasedMC\saves\save" + Convert.ToInt32(inputCommand.Substring(7)) + ".json"))
+                {
+                    File.Delete(@"c:\Users\Oreli\source\repos\CmdBasedMC\CmdBasedMC\saves\save" + Convert.ToInt32(inputCommand.Substring(7)) + ".json");
+                    int numberlol3 = 1;
+                    repeat(numberlol3, inputCommand);
+                    static void repeat(int numberlol3, string inputCommand)
+                    {
+                        if (File.Exists(@"c:\Users\Oreli\source\repos\CmdBasedMC\CmdBasedMC\saves\save" + numberlol3 + ".json"))
+                        {
+                            numberlol3++;
+                            repeat(numberlol3, inputCommand);
+                        }
+                        else if (File.Exists(@"c:\Users\Oreli\source\repos\CmdBasedMC\CmdBasedMC\saves\save" + numberlol3 + 1 + ".json"))
+                        {
+                            File.Move(@"c:\Users\Oreli\source\repos\CmdBasedMC\CmdBasedMC\saves\save" + numberlol3 + 1 + ".json", @"c:\Users\Oreli\source\repos\CmdBasedMC\CmdBasedMC\saves\save" + numberlol3 + ".json");
+                            repeat(numberlol3, inputCommand);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Successfully deleted save " + Convert.ToInt32(inputCommand.Substring(7)) + ".");
+                        }
+                    }
+                }
+            }
+*/            Main(args);
 
         }
 

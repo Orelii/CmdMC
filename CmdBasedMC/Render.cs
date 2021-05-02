@@ -1569,6 +1569,24 @@ namespace CmdMC
             Console.Write(value + " ");
             Console.ResetColor();
         }
+        public static void RealgarColour(string value)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.Write(value + " ");
+            Console.ResetColor();
+        }
+        public static void KyaniteColour(string value)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.Write(value + " ");
+            Console.ResetColor();
+        }
+        public static void AmethystColour(string value)
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Write(value + " ");
+            Console.ResetColor();
+        }
         private static void ReplaceType(string input)
         {
             if (input == "air")
@@ -1600,6 +1618,15 @@ namespace CmdMC
                     break;
                 case "lapis":
                     LapisColour("■");
+                    break;
+                case "realgar":
+                    RealgarColour("■");
+                    break;
+                case "kyanite":
+                    KyaniteColour("■");
+                    break;
+                case "amethyst":
+                    AmethystColour("■");
                     break;
                 default:
                     Console.Write("  ");
