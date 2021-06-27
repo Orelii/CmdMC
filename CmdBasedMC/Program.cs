@@ -11,6 +11,7 @@ namespace CmdMC
 
         static void Main(string[] args)
         {
+            Console.Title = "CmdMC";
             string path = Directory.GetCurrentDirectory();
             path = path.Replace(@"bin\Debug\netcoreapp3.1", @"saves");
             if (!Directory.Exists(path))
@@ -69,7 +70,22 @@ namespace CmdMC
                             if (grid3 > 0 && grid3 < 9)
                             {
                                 grid3--;
-                                if (blockSelection == "brick" || blockSelection == "stone" || blockSelection == "grass" || blockSelection == "wool" || blockSelection == "gold" || blockSelection == "fabric" || blockSelection == "water" || blockSelection == "lapis" || blockSelection == "air" || blockSelection == "realgar" || blockSelection == "kyanite" || blockSelection == "amethyst")
+                                if (blockSelection == "brick" 
+                                   || blockSelection == "stone" 
+                                   || blockSelection == "grass" 
+                                   || blockSelection == "wool" 
+                                   || blockSelection == "gold" 
+                                   || blockSelection == "fabric" 
+                                   || blockSelection == "water" 
+                                   || blockSelection == "lapis" 
+                                   || blockSelection == "air" 
+                                   || blockSelection == "netherrack" 
+                                   || blockSelection == "diamond" 
+                                   || blockSelection == "amethyst" 
+                                   || blockSelection == "andesite" 
+                                   || blockSelection == "moss" 
+                                   || blockSelection == "ice"
+                                   || blockSelection == "sand")
                                 {
                                     layer0[grid1, grid2, grid3] = blockSelection;
                                     Render.RenderField(multiLayerRender, viewmode, layer0);
@@ -89,9 +105,14 @@ namespace CmdMC
                                     Render.WaterColour("Water ");
                                     Render.LapisColour("Lapis ");
                                     Console.WriteLine("");
-                                    Render.RealgarColour("Realgar ");
-                                    Render.KyaniteColour("Kyanite ");
-                                    Render.AmethystColour("Amethyst");
+                                    Render.NetherrackColour("Netherrack ");
+                                    Render.DiamondColour("Diamond ");
+                                    Render.AmethystColour("Amethyst ");
+                                    Render.AndesiteColour("Andesite ");
+                                    Render.MossColour("Moss ");
+                                    Render.IceColour("Ice ");
+                                    Render.SandColour("Sand ");
+                                    Console.Write("Air");
                                     Console.WriteLine("");
                                 }
                             }

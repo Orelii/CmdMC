@@ -1567,21 +1567,45 @@ namespace CmdMC
             Console.Write(value + " ");
             Console.ResetColor();
         }
-        public static void RealgarColour(string value)
+        public static void NetherrackColour(string value)
         {
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.Write(value + " ");
             Console.ResetColor();
         }
-        public static void KyaniteColour(string value)
+        public static void DiamondColour(string value)
         {
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write(value + " ");
             Console.ResetColor();
         }
         public static void AmethystColour(string value)
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Write(value + " ");
+            Console.ResetColor();
+        }
+        public static void AndesiteColour(string value)
+        {
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.Write(value + " ");
+            Console.ResetColor();
+        }
+        public static void MossColour(string value)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write(value + " ");
+            Console.ResetColor();
+        }
+        public static void IceColour(string balue)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.Write(balue + " ");
+            Console.ResetColor();
+        }
+        public static void SandColour(string value)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write(value + " ");
             Console.ResetColor();
         }
@@ -1617,14 +1641,26 @@ namespace CmdMC
                 case "lapis":
                     LapisColour("■");
                     break;
-                case "realgar":
-                    RealgarColour("■");
+                case "netherrack":
+                    NetherrackColour("■");
                     break;
-                case "kyanite":
-                    KyaniteColour("■");
+                case "diamond":
+                    DiamondColour("■");
                     break;
                 case "amethyst":
                     AmethystColour("■");
+                    break;
+                case "andesite":
+                    AndesiteColour("■");
+                    break;
+                case "moss":
+                    MossColour("■");
+                    break;
+                case "ice":
+                    IceColour("■");
+                    break;
+                case "sand":
+                    SandColour("■");
                     break;
                 default:
                     Console.Write("  ");
