@@ -22,7 +22,7 @@ namespace CmdMC
             // close command
             if (inputCommand.StartsWith("close"))
             {
-                System.Environment.Exit(69420);
+                System.Environment.Exit(0);
             }
             // place command
             else if (inputCommand.StartsWith("place"))
